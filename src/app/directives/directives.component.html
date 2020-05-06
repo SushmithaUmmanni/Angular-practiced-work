@@ -1,0 +1,53 @@
+<!-- <p>directives works!</p>
+ -->
+ <h4>NgFor</h4>
+ <ul>
+   <li *ngFor="let person of people; let i = index">
+     {{ i + 1 }} - {{ person.name }}
+   </li>
+ </ul>
+ 
+ <h4>NgFor (grouped)</h4>
+ <ul *ngFor="let group of peopleByCountry">
+   <li>{{ group.country }}</li>
+   <ul>
+     <li *ngFor="let person of group.people">
+       {{ person.name }}
+     </li>
+   </ul>
+ </ul>
+ 
+ <h4>NgSwitch</h4>
+ <ul *ngFor="let person of people"
+     [ngSwitch]="person.country">
+   <li *ngSwitchCase="'UK'"
+       class="text-success">
+     {{ person.name }} ({{ person.country }})
+   </li>
+   <li *ngSwitchCase="'USA'"
+       class="text-primary">
+     {{ person.name }} ({{ person.country }})
+   </li>
+   <li *ngSwitchCase="'HK'"
+       class="text-danger">
+     {{ person.name }} ({{ person.country }})
+   </li>
+   <li *ngSwitchDefault
+       class="text-warning">
+     {{ person.name }} ({{ person.country }})
+   </li>
+ </ul>
+ 
+ 
+ <h4>NgIf</h4>
+ <ul *ngFor="let person of people">
+   <li *ngIf="person.age < 30">
+     {{ person.name }} ({{ person.age }})
+   </li>
+ </ul>
+ 
+ 
+ 
+ <!-- <h4>Custom directives</h4> -->
+ <!-- <joke *ngFor="let j of jokes" [joke]="j"></joke> -->
+ 
